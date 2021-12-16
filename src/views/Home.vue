@@ -2,7 +2,7 @@
   <div class="home">
     <filter-section />
     <grid-container v-if="filteredCountries.length > 0">
-      <country-card
+      <PaysCard
         v-for="(country, i) in filteredCountries"
         :key="i"
         :countryData="country"
@@ -12,13 +12,13 @@
 </template>
 
 <script>
-import CountryCard from '../components/CountryCard.vue'
+import PaysCard from '../components/PaysCard.vue'
 import FilterSection from '../components/FilterSection.vue'
 import GridContainer from '../components/GridContainer.vue'
 import { mapActions, mapState } from 'vuex'
 export default {
   name: 'Home',
-  components: { FilterSection, GridContainer, CountryCard },
+  components: { FilterSection, GridContainer, PaysCard },
 
   computed: {
     ...mapState(['countries', 'region']),
@@ -51,6 +51,7 @@ export default {
 <style l GridContainerang="scss">
 .home {
   padding: 30px;
+  background-color: hsl(207, 26%, 17%);
 }
 </style>
 

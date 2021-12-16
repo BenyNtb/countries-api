@@ -1,5 +1,5 @@
 <template>
-  <div class="select-dropdown">
+  <div class="select-dropdown" :class="{ 'select-dropdown--dark': isDark }">
     <vSelect
       v-model="region"
       :placeholder="placeholder"
@@ -10,6 +10,8 @@
 
 <script>
 import vSelect from 'vue-select'
+import 'vue-select/dist/vue-select.css'
+import { mapActions } from 'vuex'
 export default {
   name: 'VueSelect',
   components: { vSelect },
@@ -21,6 +23,14 @@ export default {
     return {
       region: this.options[0],
     }
+  },
+  methods: {
+    ...mapActions(['filterRegion']),
+  },
+  watch: {
+    region(val) {
+      this.filterRegion(val)
+    },
   },
 }
 </script>

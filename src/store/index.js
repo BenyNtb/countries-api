@@ -35,7 +35,6 @@ export default new Vuex.Store({
       axios
         .get(`https://restcountries.com/v2/name/${country}`)
         .then((res) => {
-          //if no country available, api still returns 200,
           if (res.data.status === 404) {
             context.commit('SEARCH_COUNTRIES', [])
           } else {

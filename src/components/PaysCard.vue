@@ -1,6 +1,7 @@
 <template>
   <div
-    class="country-card"  
+    class="country-card"
+    @click="goCountryDetailPage"  
   >
     <div class="country-card__imgbox">
       <img :src="countryData.flag" class="country-card__img" alt="flag" />
@@ -26,7 +27,7 @@
 
 <script>
 export default {
-  name: 'CountryCard',
+  name: 'PaysCard',
   props: {
     countryData: Object,
   },
@@ -34,8 +35,28 @@ export default {
 </script>
 
 <style>
-
-.country-card__img{
-  height: 100px;
+.country-card {
+  background-color: hsl(209, 23%, 22%);
+  overflow: hidden;
+  cursor: pointer;
 }
+.country-card__imgbox {
+  height: 50%;
+}
+.country-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.country-card__body {
+  padding: 20px;
+  color: hsl(0, 0%, 100%);
+}
+.country-card__list-item {
+  list-style: none;
+  line-height: 2;
+}
+
+
+
 </style>
