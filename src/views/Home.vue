@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <filter-section />
+    <FilterSection />
     <grid-container v-if="filteredCountries.length > 0">
       <PaysCard
         v-for="(country, i) in filteredCountries"
@@ -48,10 +48,17 @@ export default {
 }
 </script>
 
-<style l GridContainerang="scss">
+<style >
 .home {
   padding: 30px;
-  background-color: hsl(207, 26%, 17%);
+}
+.grid-container {
+  display: grid;
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
+  column-gap: 24px;
+  row-gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
 }
 </style>
 

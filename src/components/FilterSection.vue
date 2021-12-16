@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import CustomInput from '../custom-input/CustomInput.vue'
-import VueSelect from '../vue-select/VueSelect.vue'
+import CustomInput from '../components/CustomInput.vue'
+import VueSelect from '../components/VueSelect.vue'
 export default {
   name: 'FilterSection',
   components: {

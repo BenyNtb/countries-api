@@ -1,5 +1,5 @@
 <template>
-  <div class="select-dropdown" :class="{ 'select-dropdown--dark': isDark }">
+  <div class="select-dropdown" >
     <vSelect
       v-model="region"
       :placeholder="placeholder"
@@ -35,4 +35,17 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.filters-container {
+  margin: 30px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.filters-container__searchbox {
+  width: 30%;
+  color: hsl(0, 0%, 100%);
+}
+.filters-container__dropdown {
+  width: 30%;
+}
+</style>

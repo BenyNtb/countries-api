@@ -11,7 +11,6 @@
       <div class="detail-card__title">{{ countryData.name }}</div>
       <div
         class="detail-card__grid-container"
-        :class="{ 'detail-card__grid-container--dark': isDark }"
       >
         <div class="detail-card__left-grid">
           <li class="detail-card__list-item">
@@ -71,34 +70,36 @@
 
 <script>
 import filters from '../filters/index'
+import { mapState } from 'vuex'
 export default {
-name: 'PaysDetailsCard',
-props: {
-countryData: Object,
-},
-mixins: [filters],
-computed: {
-currencies() {
-    return this.countryData.currencies
-    .map((currency) => currency.name)
-    .join(', ')
-},
-languages() {
-    return this.countryData.languages
-    .map((language) => language.name)
-    .join(', ')
-},
-borderCountries() {
-    const neighbors = []
-    this.countryData.borders?.forEach((countryCode) => {
-    const newNeighbor = this.countries.find(
-        (country) => country.alpha3Code === countryCode
-    )
-    neighbors.push(newNeighbor.name)
-    })
-    return neighbors
-},
-},
+  name: 'PaysDetailsCard',
+  props: {
+  countryData: Object,
+  },
+  mixins: [filters],
+  computed: {
+    ...mapState(['countries']),
+    currencies() {
+      return this.countryData.currencies
+      .map((currency) => currency.name)
+      .join(', ')
+  },
+  languages() {
+      return this.countryData.languages
+      .map((language) => language.name)
+      .join(', ')
+  },
+  borderCountries() {
+      const neighbors = []
+      this.countryData.borders?.forEach((countryCode) => {
+      const newNeighbor = this.countries.find(
+          (country) => country.alpha3Code === countryCode
+      )
+      neighbors.push(newNeighbor.name)
+      })
+      return neighbors
+  },
+  },
 }
 </script>
 

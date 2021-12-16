@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar">
-    <router-link to="/" class="navbar__logo">Where in the world?</router-link>
+    <h1>Where in the world?</h1>
   </nav>
 </template>
 

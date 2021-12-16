@@ -26,10 +26,17 @@
 </template>
 
 <script>
+import filters from '../filters/index'
 export default {
   name: 'PaysCard',
   props: {
     countryData: Object,
+  },
+  mixins: [filters],
+  methods: {
+    goCountryDetailPage() {
+      this.$router.push({ path: `/${this.countryData.name}` })
+    },
   },
 }
 </script>

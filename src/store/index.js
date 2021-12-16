@@ -16,12 +16,11 @@ export default new Vuex.Store({
     SEARCH_COUNTRIES(state, payload) {
       state.countries = payload
     },
-
+    FILTER_REGION(state, payload) {
+      state.region = payload
+    },
   },
   actions: {
-    switchTheme({ commit }) {
-      commit('SWITCH_THEME')
-    },
     async getAllCountries({ commit }) {
       try {
         const response = await axios.get('https://restcountries.com/v2/all')
@@ -44,6 +43,9 @@ export default new Vuex.Store({
         .catch((error) => {
           console.log(error.message)
         })
+    },
+    filterRegion(context, region) {
+      context.commit('FILTER_REGION', region)
     },
   },
   modules: {},

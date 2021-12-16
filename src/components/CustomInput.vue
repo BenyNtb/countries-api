@@ -38,11 +38,8 @@ export default {
     clearSearch() {
       this.keyword = null
     },
-    // demo(value) {
-    //   console.log(value)
-    // },
+
   },
-  // handle search when user stops typing
   watch: {
     keyword(query) {
       if (this.timeoutQuery) {
@@ -51,7 +48,6 @@ export default {
       if (query) {
         this.timeoutQuery = setTimeout(() => this.searchCountries(query), 300)
       } else {
-        // if query is empty get all contries
         this.timeoutQuery = setTimeout(() => this.getAllCountries())
       }
     },

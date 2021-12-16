@@ -5,10 +5,8 @@
 </template>
 
 <script>
-import PaysCard from '../components/PaysCard.vue'
 export default {
   name: 'GridContainer',
-  components: { PaysCard },
 }
 </script>
 

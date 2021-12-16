@@ -2,7 +2,6 @@
   <div class="country-detail">
     <button
       class="country-detail__btn"
-      :class="{ 'country-detail__btn--dark': isDark }"
       @click="goBack"
     >
       <back-icon />
@@ -20,7 +19,7 @@ export default {
     name: 'PaysDetails',
 
     computed: {
-    ...mapState(['isDark', 'countries']),
+    ...mapState(['countries']),
     countryData() {
     return this.countries.find(
         (country) => country.name === this.$route.params.country
